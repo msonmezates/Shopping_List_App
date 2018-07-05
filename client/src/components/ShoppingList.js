@@ -17,8 +17,27 @@ export default class ShoppingList extends Component {
       { id: uuid(), name: 'Juice' }
     ]
   };
+
   render() {
     const { items } = this.state;
+    const listDiv = items.map(({ id, name }) => (
+      <CSSTransition key={id} classNames="fade" timeout={500}>
+        <ListGroupItem>
+          <Button
+            color="danger"
+            size="sm"
+            onClick={() => {
+              this.setState(prevState => ({
+                items: prevState.items.filter(item => item.id !== id)
+              }))
+            }}
+          >
+            &times;
+          </Button>
+          {name}
+        </ListGroupItem>
+      </CSSTransition>
+    ))
     return (
       <Container>
         <Button
@@ -33,6 +52,11 @@ export default class ShoppingList extends Component {
            }
          }}
         >Add Item</Button>
+        <ListGroup>
+          <TransitionGroup className="shopping-list">
+            {listDiv}
+          </TransitionGroup>
+        </ListGroup>
       </Container>
     );
   }
