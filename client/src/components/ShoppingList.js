@@ -24,6 +24,7 @@ export default class ShoppingList extends Component {
       <CSSTransition key={id} classNames="fade" timeout={500}>
         <ListGroupItem>
           <Button
+            className="remove-btn"
             color="danger"
             size="sm"
             onClick={() => {
