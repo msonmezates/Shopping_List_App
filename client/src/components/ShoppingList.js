@@ -9,7 +9,7 @@ import {
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { connect } from 'react-redux';
-import { getItems } from '../actions/itemActions';
+import { getItems, deleteItem } from '../actions/itemActions';
 
 import uuid from 'uuid';
 
@@ -17,6 +17,10 @@ class ShoppingList extends Component {
 
   componentDidMount() {
     this.props.getItems();
+  }
+
+  handleDeleteItem = id => {
+    this.props.deleteItem(id);
   }
 
   render() {
@@ -28,11 +32,7 @@ class ShoppingList extends Component {
             className="remove-btn"
             color="danger"
             size="sm"
-            onClick={() => {
-              this.setState(prevState => ({
-                items: prevState.items.filter(item => item.id !== id)
-              }))
-            }}
+            onClick={() => this.handleDeleteItem(id)}
           >
             &times;
           </Button>
@@ -67,6 +67,7 @@ class ShoppingList extends Component {
 
 ShoppingList.propTypes = {
   getItems: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func,
   item: PropTypes.object.isRequired
 }
 
@@ -74,4 +75,4 @@ const mapStateToProps = state => ({
   item: state.item
 });
 
-export default connect(mapStateToProps, { getItems })(ShoppingList);
+export default connect(mapStateToProps, { getItems, deleteItem })(ShoppingList);
