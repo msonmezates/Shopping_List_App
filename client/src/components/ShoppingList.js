@@ -23,14 +23,14 @@ class ShoppingList extends Component {
 
   render() {
     const { items } = this.props.item;
-    const listDiv = items.map(({ id, name }) => (
-      <CSSTransition key={id} classNames="fade" timeout={500}>
+    const listDiv = items.map(({ _id, name }) => (
+      <CSSTransition key={_id} classNames="fade" timeout={500}>
         <ListGroupItem>
           <Button
             className="remove-btn"
             color="danger"
             size="sm"
-            onClick={() => this.handleDeleteItem(id)}
+            onClick={() => this.handleDeleteItem(_id)}
           >
             &times;
           </Button>

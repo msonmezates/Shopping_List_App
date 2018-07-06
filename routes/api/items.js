@@ -19,7 +19,7 @@ router.post('/', (req,res) => {
     name: req.body.name
   });
 
-  newItem.save().then(item => res.json());
+  newItem.save().then(item => res.json(item));
 });
 
 // Define DELETE route

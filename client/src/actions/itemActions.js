@@ -10,11 +10,12 @@ export const getItems = () => dispatch => {
     }))
 }
 
-export const addItem = newItem => {
-  return {
-    type: ADD_ITEM,
-    payload: newItem
-  };
+export const addItem = newItem => dispatch => {
+  axios.post('/api/items', newItem)
+    .then(res => dispatch({
+      type: ADD_ITEM,
+      payload: res.data
+    }))
 }
 
 export const deleteItem = id => {

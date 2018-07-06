@@ -1,12 +1,6 @@
 import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from '../actions/constants';
 
 const initialState = {
-  // items: [
-  //   { id: uuid(), name: 'Bread' },
-  //   { id: uuid(), name: 'Milk' },
-  //   { id: uuid(), name: 'Eggs' },
-  //   { id: uuid(), name: 'Juice' }
-  // ],
   items: [],
   loading: false // fetching data is an async call so we initially need this as false
 };
