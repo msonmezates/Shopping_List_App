@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Collapse,
   Navbar,
@@ -8,20 +8,20 @@ import {
   NavItem,
   NavLink,
   Container
-} from 'reactstrap';
+} from "reactstrap";
 
 export default class AppNavbar extends Component {
   state = {
     isOpen: false
   };
-  
+
   toggle = () => {
     this.setState(prevState => {
       return {
         isOpen: !prevState.isOpen
-      }
+      };
     });
-  }
+  };
 
   render() {
     return (
@@ -33,7 +33,9 @@ export default class AppNavbar extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="https://www.google.com">Google</NavLink>
+                  <NavLink href="https://www.google.com/search?q=shopping+list+items&safe=active&hl=en&source=lnms&sa=X&ved=0ahUKEwjB1Y6BjdfcAhVLXq0KHUP2BZIQ_AUIMSgA&biw=1440&bih=705">
+                    Google
+                  </NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
