@@ -2,6 +2,10 @@
 
 > Shopping list app built with the MERN stack along with Redux for state management, Reactstrap and react-transition-group.
 
+## Live Demo
+
+To see the app in action, go to [https://shoppinglist.com](https://mern-shopping-list-app.herokuapp.com/)
+
 ## Quick Start
 
 ```bash
@@ -22,4 +26,3 @@ npm run client
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
-
